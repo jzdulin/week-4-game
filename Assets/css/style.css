@@ -8,3 +8,9 @@ body{
     background-color:rgba(0, 128, 0, 0.466);
 }
 
+.p{
+    font-size: 18px;
+  }
+  .score{
+    font-size: 32px;
+  }
