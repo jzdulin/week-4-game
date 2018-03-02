@@ -9,6 +9,20 @@ var counter = 0;
 var wins = 0;
 var losses = 0;
 
+var reset = function() {
+    counter = 0;
+    targetNumber = 1 + Math.floor(Math.random() * 100);
+    option1 = 1 + Math.floor(Math.random() * 10);
+    option2 = 1 + Math.floor(Math.random() * 10);
+    option3 = 1 + Math.floor(Math.random() * 10);
+    option4 = 1 + Math.floor(Math.random() * 10);
+    $("#number-to-guess").text(targetNumber);
+    imageCrystalGreen.attr("data-crystalvalue", option1)
+    imageCrystalYellow.attr("data-crystalvalue", option2)
+    imageCrystalRed.attr("data-crystalvalue", option3)
+    imageCrystalOrange.attr("data-crystalvalue", option4)
+};
+
 var option1 = 1 + Math.floor(Math.random() * 10);
 var option2 = 1 + Math.floor(Math.random() * 10);
 var option3 = 1 + Math.floor(Math.random() * 10);
@@ -50,10 +64,12 @@ crystals.on("click", ".crystal-image", function() {
 
     if (counter === targetNumber) {
         wins++;
+        reset();
     }
 
     else if (counter >= targetNumber) {
         losses++;
+        reset();
     }
 
     $("#wins").html("<h2>Wins:" + wins + "</h2>");
