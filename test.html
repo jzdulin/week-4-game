@@ -9,6 +9,11 @@
       width: 300px;
       height: 300px;
     }
+
+    body{
+        background-color:rgba(0, 128, 0, 0.466);
+    }
+
   </style>
 
 </head>
@@ -47,6 +52,19 @@
   var wins = 0;
   var losses = 0;
 
+  var reset = function() {
+    counter = 0;
+    targetNumber = 1 + Math.floor(Math.random() * 100);
+    option1 = 1 + Math.floor(Math.random() * 10);
+    option2 = 1 + Math.floor(Math.random() * 10);
+    option3 = 1 + Math.floor(Math.random() * 10);
+    option4 = 1 + Math.floor(Math.random() * 10);
+    $("#number-to-guess").text(targetNumber);
+    imageCrystalGreen.attr("data-crystalvalue", option1)
+    imageCrystalYellow.attr("data-crystalvalue", option2)
+    imageCrystalRed.attr("data-crystalvalue", option3)
+    imageCrystalOrange.attr("data-crystalvalue", option4)
+  };
   // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
   // We begin by expanding our array to include four options.
@@ -117,28 +135,41 @@
 
     if (counter === targetNumber) {
         wins++;
+        reset();
+        // counter = 0;
+        // targetNumber = 1 + Math.floor(Math.random() * 100);
+        // option1 = 1 + Math.floor(Math.random() * 10);
+        // option2 = 1 + Math.floor(Math.random() * 10);
+        // option3 = 1 + Math.floor(Math.random() * 10);
+        // option4 = 1 + Math.floor(Math.random() * 10);
+        // $("#number-to-guess").text(targetNumber);
+        // imageCrystalGreen.attr("data-crystalvalue", option1)
+        // imageCrystalYellow.attr("data-crystalvalue", option2)
+        // imageCrystalRed.attr("data-crystalvalue", option3)
+        // imageCrystalOrange.attr("data-crystalvalue", option4)
+
     }
 
     else if (counter >= targetNumber) {
         losses++;
+        reset();
+        // counter = 0;
+        // targetNumber = 1 + Math.floor(Math.random() * 100);
+        // option1 = 1 + Math.floor(Math.random() * 10);
+        // option2 = 1 + Math.floor(Math.random() * 10);
+        // option3 = 1 + Math.floor(Math.random() * 10);
+        // option4 = 1 + Math.floor(Math.random() * 10);
+        // $("#number-to-guess").text(targetNumber);
+        // imageCrystalGreen.attr("data-crystalvalue", option1)
+        // imageCrystalYellow.attr("data-crystalvalue", option2)
+        // imageCrystalRed.attr("data-crystalvalue", option3)
+        // imageCrystalOrange.attr("data-crystalvalue", option4)
+
     }
-    
     $("#wins").html("<h2>Wins:" + wins + "</h2>");
     $("#losses").html("<h2>Losses:" + losses + "</h2>");
     $("#score").html("<h2>Your Score:" + counter + "</h2>");
   });
-
-// $("#wins").html("<h2>Wins:" + wins + "</h2>");
-// $("#losses").html("<h2>Losses:" + losses + "</h2>");
-// $("#score").html("<h2>Your Score:" + counter + "</h2>");
-
-
-// var html = 
-//     "<p>Wins: " + wins + "</p>" +
-//     "<p>Losses: " + losses + "</p>" +
-//     "<h3>Your Score: " + counter + "</h3>";
-
-// document.querySelector("#game").innerHTML = html;
 
   </script>
 </body>
